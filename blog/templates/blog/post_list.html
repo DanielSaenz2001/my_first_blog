@@ -1,20 +1,24 @@
+{% load static %}
+
 <html>
     <head>
         <title>Tareas Universitarias 2019-1</title>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
     </head>
     <body>
-        <div>
-            <h1>Lista de tareas</h1>    
+            <div>
+                    <h1>Lista de tareas</h1>    
+                </div>
+        
+        
+        <div>{% for post in posts %}
+            <h2><a href = "" >{{ post.title }} </a ></h2>
+            <p>{{ post.text|linebreaksbr }} </p >
+            <p> publicado: {{ post.published_date }} </p>  
         </div>
-        <div>
-            <h2>tamaño de letra h2</h2>
-        </div>
-        <div>
-            <h3>Usando el h3</h3>
-        </div>
-        <div>
-            <p><strong>Calculo II</strong></p>
-        </div>
+        {% endfor %}
+
         <div>
             <a href="https://google.com.pe">Ir a google</a>
         </div>
