@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h1>{{post.title}}</h1>
+
+
+<form action="" method="POST" >
+  {% csrf_token %}
+  <p>Estas seguro que quieres remover la tarea?</p>
+  <input type="submit" class=" btn btn-danger" action="" value="Si, Borrar. " />
+  <button type="button" class=" btn btn-warning" onclick="atras()">Cancelar</button>
+  <script>
+        function atras(){
+                window.history.back()
+        }
+    </script>
+</form>
+
+{% endblock %}

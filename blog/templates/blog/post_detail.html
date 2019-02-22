@@ -2,13 +2,32 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+       
     <div class="post">
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
         {% endif %}
+        
+        {% if user.is_authenticated %}
+        <button type="button" class=" btn btn-danger" onclick="regresar()">Regresar a lista</button>
+              
+        {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+        <div class="text-right">
+                
+                <a class="btn btn-danger"><span class="glyphicon glyphicon-minus" onclick="eliminar()"></span></a>
+            <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        </div>
+        <script>
+                function regresar(){
+                    window.location.pathname="{% url 'post_list' %}"
+                }
+                function eliminar(){
+                        window.location.pathname="{% url 'post_delete' pk=post.pk %}"
+                }
+        </script>
     </div>
 {% endblock %}
