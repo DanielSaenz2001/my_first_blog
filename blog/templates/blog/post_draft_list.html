@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<button type="button" class=" btn btn-info" onclick="regresar()">Regresar a lista</button>
+{% for post in posts %}
+        <div class="post">
+               
+            <p class="date">created: {{ post.create_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|truncatechars:200 }}</p>    
+            <script>
+                function regresar(){
+                    window.location.pathname="{% url 'post_list' %}"
+                }
+                </script>     
+        </div>
+    {% endfor %}
+{% endblock %}

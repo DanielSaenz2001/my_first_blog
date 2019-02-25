@@ -12,7 +12,13 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
+                {% if user.is_superuser or user.is_staff %}
+                    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                {% endif %}
                 <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <p class="top-menu">Hola {{ user.username }} <small>(<a href="{% url 'logout' %}">Salir</a>)</small></p>
+            {% else %}
+                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
             <h1>Lista de tareas</h1>    
         </div>

@@ -8,10 +8,11 @@
                     </div> 
                     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
                 <p>Descripcion: <strong>{{ post.text|linebreaksbr }}</strong> </p>
+                <a href="{% url 'post_detail' pk=post.pk %}">Comentarios: {{ post.approved_comments.count}}</a>
                 <p> Creado: {{ post.create_date }} </p> 
                 <p> Fecha de entrega: {{post.entrega_date}}</p>
                 <p> Autor: {{post.author}}</p>
-                <p> saludo: {{saludo}}</p>
             </div>
+            
         {% endfor %}
     {% endblock %}    
