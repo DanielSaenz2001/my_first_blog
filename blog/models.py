@@ -29,7 +29,8 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    text = models.TextField()
+    text = models.TextField(help_text="Sube una imagen respecto al tema, luego nuestro personal lo verificara y lo subira")
+    image = models.ImageField(upload_to='blog/images/', blank= True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
@@ -39,7 +40,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
-        
-     
-
-    

@@ -12,11 +12,12 @@
         {% else %}
             {% if user.is_superuser or user.is_staff %}
                 <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publicar</a>
-                
             {% endif %}
             <div>Un administrador o alguien del staff estará revisando su post espere por favor  </div>
             {% endif %}
+
         <button type="button" class=" btn btn-info" onclick="regresar()">Regresar a lista</button>
+
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
         <div class="text-right">
@@ -35,11 +36,14 @@
 
     <hr>
     {% if user.is_authenticated %}
+
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Agregar comentario</a>
 {%endif%}
 
-    {% for comment in post.comments.all %}
-        
+
+
+    {% for comment in post.comments.all %}  
+    
         {% if user.is_superuser or user == comment.author or comment.approved_comment%}
         
         <div class="comment">
@@ -55,9 +59,14 @@
             </div>  
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks }}</p>
+            {% if comment.image  %}
+               <a href= "{{ MEDIA_URL }}{{ comment.image }}"><img src="{{ MEDIA_URL }}{{ comment.image }}" alt="Imagen" height="100" /></a> 
+            {%endif%}
         </div>
         {% endif %}
         {% empty %}
-        <p>No hay comentarios :(</p>
+        <p>No hay comentarios :(</p>      
     {% endfor %}
+        
+
 {% endblock %}

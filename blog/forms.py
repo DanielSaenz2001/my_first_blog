@@ -9,7 +9,6 @@ class PostForm(forms.ModelForm):
         
 
 
-
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         
@@ -24,4 +23,5 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ( 'text' ,)        
+        fields = ( 'text' ,'image')        
+
