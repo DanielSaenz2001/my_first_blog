@@ -2,7 +2,7 @@
 
 {% block content %}
 <button type="button" class=" btn btn-info" onclick="regresar()">Regresar a lista</button>
-{% for post in posts %}
+{% for post in object_list %}
         <div class="post">
                
             <p class="date">created: {{ post.create_date|date:'d-m-Y' }}</p>

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,6 +29,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['127.0.0.1', 'upeudaniel.herokuapp.com'] 
 ALLOWED_HOSTS = ['127.0.0.1', 'danielss2001.pythonanywhere.com']
+
 
 # Application definition
 

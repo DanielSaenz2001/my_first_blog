@@ -1,12 +1,10 @@
 {% load static %}
-
 <html>
     <head>
         <title>Tareas Universitarias 2019-1</title>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" type="text/css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">   
     </head>
     <body>
@@ -18,7 +16,9 @@
                 <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                 <p class="top-menu">Hola {{ user.username }} <small>(<a href="{% url 'logout' %}">Salir</a>)</small></p>
             {% else %}
-                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+            <a href="{% url 'post_list' %}" class="top-menu"><span class="glyphicon glyphicon-book"></span></a> 
+            <a href="{% url 'signup' %}" class= "top-menu"><span class="glyphicon glyphicon-user"></span></a>
+            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-off"></span></a>  
             {% endif %}
             <h1>Lista de tareas</h1>    
         </div>
