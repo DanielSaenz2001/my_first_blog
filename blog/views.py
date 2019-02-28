@@ -78,7 +78,7 @@ class CommentRemove(View):
         return HttpResponseRedirect(self.success_url)
 
 class AddCommentToPost(CreateView):
-    model = Post
+    model = Comment
     form_class = CommentForm
     success_url = reverse_lazy("post_list")
     template_name_suffix= "_add_comment_to_post"
